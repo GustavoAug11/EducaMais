@@ -1,0 +1,72 @@
+/* EducaMais — estilos globais e animações */
+:root {
+  font-family: 'Nunito', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  color: #1A1035;
+  background: #0f0a2e;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+* { box-sizing: border-box; }
+
+html, body, #root { min-height: 100%; margin: 0; }
+
+body {
+  min-width: 320px;
+  overflow-x: hidden;
+  background: #0f0a2e;
+}
+
+button, input, select, textarea { font: inherit; }
+button { -webkit-tap-highlight-color: transparent; }
+button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible {
+  outline: 3px solid rgba(108, 58, 255, .35);
+  outline-offset: 2px;
+}
+
+/* Animações usadas pelo JSX */
+.anim-fadeup {
+  animation: fadeUp .42s ease both;
+}
+.anim-popin {
+  animation: popIn .42s cubic-bezier(.2,.8,.2,1) both;
+}
+.anim-delay-1 { animation-delay: .06s; }
+.anim-delay-2 { animation-delay: .12s; }
+.anim-delay-3 { animation-delay: .18s; }
+.anim-delay-4 { animation-delay: .24s; }
+.anim-delay-5 { animation-delay: .30s; }
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes popIn {
+  from { opacity: 0; transform: scale(.82); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes bounce-dot {
+  0%, 60%, 100% { transform: translateY(0); opacity: .55; }
+  30% { transform: translateY(-5px); opacity: 1; }
+}
+
+@media (max-width: 520px) {
+  body { background: #F5F3FF; }
+}
+
+@media (max-height: 700px) {
+  /* Evita que o topo do app consuma espaço demais em telas baixas */
+  .compact-mobile { padding-top: 44px !important; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
