@@ -43,12 +43,12 @@ const LIVROS = [
     { id: 4, title: 'Álgebra para Todos', author: 'Roberto Lima', subject: 'Matemática', color: '#6C3AFF', bg: '#F0EBFF', nivel: 'Avançado', desc: 'Equações, inequações e sistemas lineares com resolução passo a passo.', topicos: ['Equações', 'Inequações', 'Sistemas', 'Funções'], pages: 242, emoji: '🔢' },
 ];
 const VIDEOAULAS = [
-    { id: 1, title: 'Introdução às frações', subject: 'Matemática', topic: 'Frações', duration: '08:32', teacher: 'Prof. Carlos Mendes', watched: false, progresso: 0 },
-    { id: 2, title: 'Como resolver frações', subject: 'Matemática', topic: 'Frações', duration: '12:15', teacher: 'Prof. Carlos Mendes', watched: true, progresso: 100 },
-    { id: 3, title: 'Exercícios resolvidos', subject: 'Matemática', topic: 'Frações', duration: '10:45', teacher: 'Prof. Carlos Mendes', watched: false, progresso: 40 },
-    { id: 4, title: 'Classes de palavras', subject: 'Português', topic: 'Gramática', duration: '09:20', teacher: 'Profa. Ana Paula', watched: true, progresso: 100 },
-    { id: 5, title: 'Pontuação na prática', subject: 'Português', topic: 'Pontuação', duration: '07:55', teacher: 'Profa. Ana Paula', watched: false, progresso: 65 },
-    { id: 6, title: 'Porcentagem do zero', subject: 'Matemática', topic: 'Porcentagem', duration: '11:10', teacher: 'Prof. Roberto Lima', watched: false, progresso: 0 },
+    { id: 1, title: 'Introdução às frações', subject: 'Matemática', topico: 'Frações', duracao: '08:32', professor: 'Prof. Carlos Mendes', watched: false, progresso: 0 },
+    { id: 2, title: 'Como resolver frações', subject: 'Matemática', topico: 'Frações', duracao: '12:15', professor: 'Prof. Carlos Mendes', watched: true, progresso: 100 },
+    { id: 3, title: 'Exercícios resolvidos', subject: 'Matemática', topico: 'Frações', duracao: '10:45', professor: 'Prof. Carlos Mendes', watched: false, progresso: 40 },
+    { id: 4, title: 'Classes de palavras', subject: 'Português', topico: 'Gramática', duracao: '09:20', professor: 'Profa. Ana Paula', watched: true, progresso: 100 },
+    { id: 5, title: 'Pontuação na prática', subject: 'Português', topico: 'Pontuação', duracao: '07:55', professor: 'Profa. Ana Paula', watched: false, progresso: 65 },
+    { id: 6, title: 'Porcentagem do zero', subject: 'Matemática', topico: 'Porcentagem', duracao: '11:10', professor: 'Prof. Roberto Lima', watched: false, progresso: 0 },
 ];
 const APOSTILAS = [
     { id: 1, title: 'Apostila de Matemática — Porcentagem', subject: 'Matemática', color: '#6C3AFF', bg: '#F0EBFF', desc: 'Aprenda os conceitos básicos de porcentagem através de exemplos e exercícios.', pages: 32, progresso: 30, emoji: '📄' },
