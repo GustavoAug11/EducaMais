@@ -635,7 +635,7 @@ function TelaConteudo({ navegar, materiaSelecionada }) {
             <div style={{ width: 40, height: 40, borderRadius: 12, background: subject.bg, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '20px', flexShrink: 0 }}>{block.icone}</div>
             <div>
               <p style={{ fontWeight: 800, color: CORES.text, margin: '0 0 4px', fontSize: '14px' }}>{block.titulo}</p>
-              <p style={{ color: CORES.muted, margin: 0, fontSize: '13px', lineHeight: 1.5 }}>{block.texto}</p> 
+              <p style={{ color: CORES.muted, margin: 0, fontSize: '13px', lineHeight: 1.5 }}>{block.texto}</p>
             </div>
           </div>))}
 
