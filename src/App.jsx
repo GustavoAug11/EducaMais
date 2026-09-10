@@ -597,14 +597,14 @@ function TelaConteudo({ navegar, materiaSelecionada }) {
     const subject = portuguesSelecionado ? MATERIAS[0] : MATERIAS[1];
     const blocks = portuguesSelecionado
         ? [
-            { icon: '📖', title: 'Leitura', text: 'A leitura é a base da interpretação. Ler com atenção ajuda a entender o texto.' },
-            { icon: '✏️', title: 'Gramática', text: 'Gramática estuda as regras da língua. Ex: classes de palavras, conjugação verbal.' },
-            { icon: '📝', title: 'Interpretação', text: 'Interpretar é entender o significado e a mensagem do texto. Ex: tema central, intenção do autor.' },
+            { icone: '📖', titulo: 'Leitura', texto: 'A leitura é a base da interpretação. Ler com atenção ajuda a entender o texto.' },
+            { icone: '✏️', titulo: 'Gramática', texto: 'Gramática estuda as regras da língua. Ex: classes de palavras, conjugação verbal.' },
+            { icone: '📝', titulo: 'Interpretação', texto: 'Interpretar é entender o significado e a mensagem do texto. Ex: tema central, intenção do autor.' },
         ]
         : [
-            { icon: '➕', title: 'Adição', text: 'A adição é a operação de juntar duas ou mais quantidades. Ex: 15 + 7 = 22' },
-            { icon: '✖️', title: 'Multiplicação', text: 'Multiplicação é uma forma rápida de somar quantidades iguais. Ex: 4 × 3 = 12' },
-            { icon: '➗', title: 'Divisão', text: 'Divisão é distribuir uma quantidade em partes iguais. Ex: 20 ÷ 4 = 5' },
+            { icone: '➕', titulo: 'Adição', texto: 'A adição é a operação de juntar duas ou mais quantidades. Ex: 15 + 7 = 22' },
+            { icone: '✖️', titulo: 'Multiplicação', texto: 'Multiplicação é uma forma rápida de somar quantidades iguais. Ex: 4 × 3 = 12' },
+            { icone: '➗', titulo: 'Divisão', texto: 'Divisão é distribuir uma quantidade em partes iguais. Ex: 20 ÷ 4 = 5' },
         ];
     return (<div style={{ flex: 1, display: 'flex', flexDirection: 'column', overflowY: 'auto' }}>
       <div style={{ background: `linear-gradient(135deg, ${subject.color}, ${subject.color}CC)`, padding: '60px 24px 28px', position: 'relative', overflow: 'hidden' }}>
@@ -622,7 +622,6 @@ function TelaConteudo({ navegar, materiaSelecionada }) {
       </div>
 
       <div style={{ flex: 1, padding: '20px', display: 'flex', flexDirection: 'column', gap: '14px' }}>
-        {/* Quer aprender antes? */}
         <div className="anim-fadeup" style={{ background: '#fff', borderRadius: 18, padding: '16px', boxShadow: '0 4px 16px rgba(108,58,255,0.08)', border: `1.5px solid ${subject.color}20` }}>
           <p style={{ fontWeight: 800, color: subject.color, fontSize: '13px', margin: '0 0 10px' }}>💡 Quer aprender antes de praticar?</p>
           <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
@@ -632,11 +631,11 @@ function TelaConteudo({ navegar, materiaSelecionada }) {
           </div>
         </div>
 
-        {blocks.map((block, i) => (<div key={block.title} className={`anim-fadeup anim-delay-${i + 1}`} style={{ background: '#fff', borderRadius: 16, padding: '16px', display: 'flex', gap: '12px', boxShadow: '0 2px 12px rgba(108,58,255,0.08)' }}>
-            <div style={{ width: 40, height: 40, borderRadius: 12, background: subject.bg, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '20px', flexShrink: 0 }}>{block.icon}</div>
+        {blocks.map((block, i) => (<div key={block.titulo} className={`anim-fadeup anim-delay-${i + 1}`} style={{ background: '#fff', borderRadius: 16, padding: '16px', display: 'flex', gap: '12px', boxShadow: '0 2px 12px rgba(108,58,255,0.08)' }}>
+            <div style={{ width: 40, height: 40, borderRadius: 12, background: subject.bg, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '20px', flexShrink: 0 }}>{block.icone}</div>
             <div>
-              <p style={{ fontWeight: 800, color: CORES.text, margin: '0 0 4px', fontSize: '14px' }}>{block.title}</p>
-              <p style={{ color: CORES.muted, margin: 0, fontSize: '13px', lineHeight: 1.5 }}>{block.text}</p>
+              <p style={{ fontWeight: 800, color: CORES.text, margin: '0 0 4px', fontSize: '14px' }}>{block.titulo}</p>
+              <p style={{ color: CORES.muted, margin: 0, fontSize: '13px', lineHeight: 1.5 }}>{block.texto}</p> 
             </div>
           </div>))}
 
@@ -662,8 +661,7 @@ function TelaConteudo({ navegar, materiaSelecionada }) {
 }
 function TelaExercicio({ navegar, qIndex, materiaSelecionada, quantidadeQuiz }) {
     const [selected, setSelected] = useState(null);
-    // Filtra questões pela matéria selecionada
-    const questoesFiltradas = QUESTOES.slice(materiaSelecionada === 'matematica' ? 0 : 10);
+    const questoesFiltradas = QUESTOES.slice(materiaSelecionada === 'matematica' ? 0 : 10, materiaSelecionada === 'matematica' ? 10 : 20);
     const q = questoesFiltradas.length ? questoesFiltradas[qIndex % questoesFiltradas.length] : QUESTOES[0];
   const total = quantidadeQuiz;
     const progresso = (qIndex / total) * 100;
@@ -673,7 +671,7 @@ function TelaExercicio({ navegar, qIndex, materiaSelecionada, quantidadeQuiz }) 
             return;
         setSelected(idx);
         setTimeout(() => {
-            const correct = idx === q.answer;
+            const correct = idx === q.resposta;
             navegar(correct ? 'correct' : 'wrong');
             setSelected(null);
         }, 700);
@@ -694,11 +692,11 @@ function TelaExercicio({ navegar, qIndex, materiaSelecionada, quantidadeQuiz }) 
           <p style={{ fontSize: '24px', fontWeight: 900, color: CORES.text, margin: 0, lineHeight: 1.3 }}>{q.q}</p>
         </div>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
-          {q.options.map((opt, i) => {
+          {q.opcao.map((opt, i) => {
             const letter = ['A', 'B', 'C', 'D'][i];
             const isSelected = selected === i;
-            const isCorrect = selected !== null && i === q.answer;
-            const isWrong = isSelected && i !== q.answer;
+            const isCorrect = selected !== null && i === q.resposta;
+            const isWrong = isSelected && i !== q.resposta;
             let bg = '#fff', border = '#EDE9FF', textColor = CORES.text;
             if (isCorrect) {
                 bg = '#F0FDF4';
@@ -751,7 +749,7 @@ function TelaRespostaCorreta({ navegar, qIndex, setQIndex, materiaSelecionada, q
       <p className="anim-fadeup anim-delay-1" style={{ fontSize: '16px', fontWeight: 600, color: CORES.text, margin: '0 0 20px', textAlign: 'center' }}>Resposta correta! 🎯</p>
       <div className="anim-fadeup anim-delay-2" style={{ background: '#fff', borderRadius: 18, padding: '18px 20px', width: '100%', marginBottom: '24px', boxShadow: '0 4px 20px rgba(34,197,94,0.15)', border: '2px solid #BBF7D0' }}>
         <p style={{ fontWeight: 800, color: CORES.green, fontSize: '14px', margin: '0 0 6px' }}>💡 Explicação</p>
-        <p style={{ color: CORES.text, fontSize: '14px', margin: 0, lineHeight: 1.6 }}>{q.explanation}</p>
+        <p style={{ color: CORES.text, fontSize: '14px', margin: 0, lineHeight: 1.6 }}>{q.explicacao}</p>
       </div>
       <div className="anim-fadeup anim-delay-3" style={{ background: '#fff', borderRadius: 12, padding: '10px 20px', marginBottom: '24px', border: '2px solid #BBF7D0' }}>
         <span style={{ fontWeight: 900, color: CORES.green, fontSize: '15px' }}>+10 pontos ⭐</span>
@@ -781,7 +779,7 @@ function TelaRespostaIncorreta({ navegar, qIndex, setQIndex, materiaSelecionada,
       <p className="anim-fadeup anim-delay-1" style={{ fontSize: '15px', fontWeight: 600, color: CORES.muted, margin: '0 0 20px', textAlign: 'center' }}>Essa não foi a resposta correta — mas você aprende tentando!</p>
       <div className="anim-fadeup anim-delay-2" style={{ background: '#fff', borderRadius: 18, padding: '18px 20px', width: '100%', marginBottom: '24px', boxShadow: '0 4px 20px rgba(239,68,68,0.10)', border: '2px solid #FCA5A5' }}>
         <p style={{ fontWeight: 800, color: CORES.red, fontSize: '14px', margin: '0 0 6px' }}>✅ Resposta correta</p>
-        <p style={{ color: CORES.text, fontSize: '14px', margin: 0, lineHeight: 1.6 }}>{q.explanation}</p>
+        <p style={{ color: CORES.text, fontSize: '14px', margin: 0, lineHeight: 1.6 }}>{q.explicacao}</p>
       </div>
       <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', width: '100%' }} className="anim-fadeup anim-delay-3">
         <button onClick={() => { navegar('exercise'); }} style={{ padding: '16px', borderRadius: 14, background: `linear-gradient(135deg, ${CORES.violet}, #9B5DE5)`, color: '#fff', border: 'none', fontSize: '16px', fontWeight: 800, cursor: 'pointer', fontFamily: "'Nunito', sans-serif", boxShadow: `0 6px 20px rgba(108,58,255,0.3)` }}>Tentar novamente 🔄</button>
