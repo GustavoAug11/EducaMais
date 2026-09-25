@@ -1,12 +1,12 @@
 import './App.css';
 import { useState, useEffect } from 'react';
-// ─── Data ─────────────────────────────────────────────────────────────────────
+
 const MATERIAS = [
     { id: 'portugues', label: 'Português', icon: '📚', color: '#FF6B35', bg: '#FFF0EA', topicos: ['Interpretação de texto', 'Gramática', 'Ortografia', 'Pontuação'] },
     { id: 'matematica', label: 'Matemática', icon: '🔢', color: '#6C3AFF', bg: '#F0EBFF', topicos: ['Operações básicas', 'Frações', 'Porcentagem', 'Equações'] },
 ];
 const QUESTOES = [
-    // Matemática
+    
     { q: 'Quanto é 15 × 4?', opcao: ['40', '50', '60', '70'], resposta: 2, explicacao: '15 × 4 = 60. Multiplique 15 por 4: 10×4=40, 5×4=20, logo 40+20=60.' },
     { q: 'Qual é a metade de 48?', opcao: ['22', '24', '26', '28'], resposta: 1, explicacao: '48 ÷ 2 = 24.' },
     { q: '3/4 equivale a quantos por cento?', opcao: ['50%', '65%', '70%', '75%'], resposta: 3, explicacao: '3 ÷ 4 = 0,75 = 75%.' },
@@ -17,7 +17,7 @@ const QUESTOES = [
     { q: 'Qual é o resultado de 144 ÷ 12?', opcao: ['10', '11', '12', '14'], resposta: 2, explicacao: '144 ÷ 12 = 12.' },
     { q: 'Quantos lados tem um hexágono?', opcao: ['4', '5', '6', '7'], resposta: 2, explicacao: 'Hexa = seis. Um hexágono tem 6 lados.' },
     { q: 'Qual é o MMC de 4 e 6?', opcao: ['8', '10', '12', '24'], resposta: 2, explicacao: 'Múltiplos de 4: 4,8,12… Múltiplos de 6: 6,12… MMC = 12.' },
-    // Português
+
     { q: 'Qual é o sinônimo de "alegre"?', opcao: ['Triste', 'Feliz', 'Cansado', 'Assustado'], resposta: 1, explicacao: 'Sinônimo é uma palavra com significado semelhante. "Feliz" tem o mesmo sentido de "alegre".' },
     { q: 'Em qual alternativa há um verbo no infinitivo?', opcao: ['Ele corre rápido.', 'Vou correr amanhã.', 'Ele correu ontem.', 'Estou correndo agora.'], resposta: 1, explicacao: 'O infinitivo é a forma verbal que termina em -ar, -er, -ir. "Correr" é infinitivo.' },
     { q: 'Qual frase está pontuada corretamente?', opcao: ['Ele comprou maçã, pão e leite', 'Ele comprou maçã pão e leite.', 'Ele comprou, maçã pão, e leite.', 'Ele comprou maçã pão, e leite'], resposta: 0, explicacao: 'As vírgulas devem separar itens de uma enumeração de forma clara e correta.' },
@@ -109,7 +109,7 @@ function EstruturaCelular({ children, dark }) {
 function NavegacaoInferior({ screen, navegar }) {
     const abas = [
         { id: 'home', icon: '🏠', label: 'Início' },
-        { id: 'subjects', icon: '📖', label: 'Matérias' },
+        { id: 'subjects', icon: '📖', label: 'Atividades' },
         { id: 'materials', icon: '🎒', label: 'Materiais' },
         { id: 'performance', icon: '📊', label: 'Desempenho' },
         { id: 'profile', icon: '👤', label: 'Perfil' },
@@ -438,7 +438,7 @@ function TelaInicio({ navegar, streak }) {
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.5)" strokeWidth="2.5"><path d="M9 18l6-6-6-6"/></svg>
         </button>
 
-        {/* Continue estudando */}
+
         <div className="anim-fadeup anim-delay-4" style={{ background: '#fff', borderRadius: 18, padding: '16px', boxShadow: '0 4px 16px rgba(108,58,255,0.08)' }}>
           <p style={{ fontWeight: 800, fontSize: '13px', color: CORES.text, margin: '0 0 12px' }}>Continue estudando</p>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
@@ -459,7 +459,7 @@ function TelaInicio({ navegar, streak }) {
           <button onClick={() => navegar('focus')} style={{ padding: 14, borderRadius: 16, border: 'none', background: '#EFFFFB', boxShadow: '0 4px 14px rgba(0,201,167,.06)', textAlign: 'left', cursor: 'pointer', fontFamily: "'Nunito', sans-serif" }}>🎯 <b style={{ color: CORES.text }}>Modo foco</b><small style={{ display: 'block', color: CORES.muted, marginTop: 3 }}>25 minimo</small></button>
         </div>
 
-        {/* Stats */}
+
         <div className="anim-fadeup anim-delay-4" style={{ display: 'flex', gap: '10px' }}>
           <IndicadorEstatistica icon="✅" value="124" label="Exercícios" color={CORES.teal}/>
           <IndicadorEstatistica icon="🎯" value="78%" label="Acertos" color={CORES.orange}/>
@@ -470,7 +470,7 @@ function TelaInicio({ navegar, streak }) {
           ▶ Continuar estudando
         </button>
 
-        {/* Achievements */}
+
         <div className="anim-fadeup anim-delay-4" style={{ background: '#fff', borderRadius: 18, padding: '16px', boxShadow: '0 4px 16px rgba(108,58,255,0.08)' }}>
           <p style={{ fontWeight: 800, fontSize: '13px', color: CORES.text, margin: '0 0 12px' }}>Conquistas recentes</p>
           <div style={{ display: 'flex', gap: '10px', overflowX: 'auto' }}>
@@ -516,7 +516,7 @@ function TelaEsqueciSenha({ navegar }) {
         </p>
       </div>
 
-      {/* Step 1: Email */}
+
       {step === 'email' && (<div className="anim-fadeup anim-delay-1" style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
           <div>
             <label style={{ fontSize: '12px', fontWeight: 700, color: CORES.muted, textTransform: 'uppercase', letterSpacing: '0.08em' }}>E-mail</label>
@@ -528,7 +528,7 @@ function TelaEsqueciSenha({ navegar }) {
           </button>
         </div>)}
 
-      {/* Step 2: Code verification */}
+
       {step === 'code' && (<div className="anim-fadeup anim-delay-1" style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
           <div style={{ background: '#F5F3FF', borderRadius: 14, padding: '14px', textAlign: 'center', marginBottom: '8px' }}>
             <p style={{ fontSize: '12px', color: CORES.muted, margin: '0 0 4px' }}>Código enviado para</p>
@@ -544,7 +544,7 @@ function TelaEsqueciSenha({ navegar }) {
           </button>
         </div>)}
 
-      {/* Step 3: New password */}
+
       {step === 'newpass' && (<div className="anim-fadeup anim-delay-1" style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
           <div>
             <label style={{ fontSize: '12px', fontWeight: 700, color: CORES.muted, textTransform: 'uppercase', letterSpacing: '0.08em' }}>Nova senha</label>
@@ -564,6 +564,7 @@ function TelaEsqueciSenha({ navegar }) {
         </div>)}
     </div>);
 }
+
 function TelaMaterias({ navegar, definirMateriaSelecionada }) {
     return (<div style={{ flex: 1, display: 'flex', flexDirection: 'column', overflowY: 'auto' }}>
       <div style={{ padding: '60px 24px 16px', background: '#fff', borderBottom: '1px solid #EDE9FF' }}>
@@ -863,12 +864,12 @@ function TelaDesempenho({ navegar }) {
 }
 function TelaPerfil({ navegar, profile }) {
     const itens = [
-        { icon: '✏️', label: 'Editar perfil', dest: 'edit-profile' },
-        { icon: '🔔', label: 'Notificações', dest: 'notifications' },
-        { icon: '❤️', label: 'Meus favoritos', dest: 'favorites' },
-        { icon: '📅', label: 'Histórico de estudos', dest: 'history' },
-        { icon: '🏆', label: 'Ranking semanal', dest: 'ranking' },
-        { icon: '⚙️', label: 'Configurações', dest: 'settings' },
+        { icone: '✏️', label: 'Editar perfil', dest: 'edit-profile' },
+        { icone: '🔔', label: 'Notificações', dest: 'notifications' },
+        { icone: '❤️', label: 'Meus favoritos', dest: 'favorites' },
+        { icone: '📅', label: 'Histórico de estudos', dest: 'history' },
+        { icone: '🏆', label: 'Ranking semanal', dest: 'ranking' },
+        { icone: '⚙️', label: 'Configurações', dest: 'settings' },
     ];
     return (<div style={{ flex: 1, display: 'flex', flexDirection: 'column', overflowY: 'auto' }}>
       <div style={{ background: `linear-gradient(145deg, ${CORES.violet} 0%, #9B5DE5 100%)`, padding: '60px 24px 28px', textAlign: 'center', position: 'relative', overflow: 'hidden', flexShrink: 0 }}>
@@ -890,7 +891,7 @@ function TelaPerfil({ navegar, profile }) {
         </div>
         <div className="anim-fadeup anim-delay-1" style={{ background: '#fff', borderRadius: 18, overflow: 'hidden', boxShadow: '0 4px 16px rgba(108,58,255,0.08)' }}>
           {itens.map((item, i) => (<button key={item.label} onClick={() => navegar(item.dest)} style={{ width: '100%', display: 'flex', alignItems: 'center', gap: '14px', padding: '15px 18px', border: 'none', borderBottom: i < itens.length - 1 ? '1px solid #F5F3FF' : 'none', background: 'transparent', cursor: 'pointer', fontFamily: "'Nunito', sans-serif", transition: 'background 0.15s' }} onMouseEnter={e => e.currentTarget.style.background = '#F5F3FF'} onMouseLeave={e => e.currentTarget.style.background = 'transparent'}>
-              <span style={{ fontSize: '20px' }}>{item.icon}</span>
+              <span style={{ fontSize: '20px' }}>{item.icone}</span>
               <span style={{ fontWeight: 600, fontSize: '14px', color: CORES.text }}>{item.label}</span>
               <svg style={{ marginLeft: 'auto' }} width="14" height="14" viewBox="0 0 24 24" fill="none" stroke={CORES.muted} strokeWidth="2.5"><path d="M9 18l6-6-6-6"/></svg>
             </button>))}
@@ -929,25 +930,25 @@ function TelaEdicaoPerfil({ navegar, profile, onSave }) {
           </div>
         </div>
 
-        {/* Name field */}
+
         <div className="anim-fadeup anim-delay-1" style={{ background: '#fff', borderRadius: 16, padding: '14px', boxShadow: '0 2px 12px rgba(108,58,255,0.06)' }}>
           <label style={{ fontSize: '11px', fontWeight: 800, color: CORES.muted, textTransform: 'uppercase', letterSpacing: '0.08em' }}>Nome completo</label>
           <input value={name} onChange={e => setName(e.target.value)} style={{ width: '100%', marginTop: '8px', padding: '12px', borderRadius: 12, border: `1.5px solid ${CORES.violet}20`, outline: 'none', fontSize: '14px', fontFamily: "'Nunito', sans-serif", color: CORES.text, boxSizing: 'border-box' }}/>
         </div>
 
-        {/* Email field */}
+
         <div className="anim-fadeup anim-delay-2" style={{ background: '#fff', borderRadius: 16, padding: '14px', boxShadow: '0 2px 12px rgba(108,58,255,0.06)' }}>
           <label style={{ fontSize: '11px', fontWeight: 800, color: CORES.muted, textTransform: 'uppercase', letterSpacing: '0.08em' }}>E-mail</label>
           <input value={email} onChange={e => setEmail(e.target.value)} type="email" style={{ width: '100%', marginTop: '8px', padding: '12px', borderRadius: 12, border: `1.5px solid ${CORES.violet}20`, outline: 'none', fontSize: '14px', fontFamily: "'Nunito', sans-serif", color: CORES.text, boxSizing: 'border-box' }}/>
         </div>
 
-        {/* School field */}
+
         <div className="anim-fadeup anim-delay-3" style={{ background: '#fff', borderRadius: 16, padding: '14px', boxShadow: '0 2px 12px rgba(108,58,255,0.06)' }}>
           <label style={{ fontSize: '11px', fontWeight: 800, color: CORES.muted, textTransform: 'uppercase', letterSpacing: '0.08em' }}>Escola</label>
           <input value={school} onChange={e => setSchool(e.target.value)} style={{ width: '100%', marginTop: '8px', padding: '12px', borderRadius: 12, border: `1.5px solid ${CORES.violet}20`, outline: 'none', fontSize: '14px', fontFamily: "'Nunito', sans-serif", color: CORES.text, boxSizing: 'border-box' }}/>
         </div>
 
-        {/* Year field */}
+
         <div className="anim-fadeup anim-delay-4" style={{ background: '#fff', borderRadius: 16, padding: '14px', boxShadow: '0 2px 12px rgba(108,58,255,0.06)' }}>
           <label style={{ fontSize: '11px', fontWeight: 800, color: CORES.muted, textTransform: 'uppercase', letterSpacing: '0.08em' }}>Ano letivo</label>
           <select value={year} onChange={e => setYear(e.target.value)} style={{ width: '100%', marginTop: '8px', padding: '12px', borderRadius: 12, border: `1.5px solid ${CORES.violet}20`, outline: 'none', fontSize: '14px', fontFamily: "'Nunito', sans-serif", color: CORES.text, boxSizing: 'border-box', background: '#fff', cursor: 'pointer' }}>
@@ -1018,12 +1019,12 @@ function TelaCentralMateriais({ navegar }) {
             <p style={{ fontWeight: 800, fontSize: '13px', color: CORES.text, margin: '0 0 10px' }}>Acessar por tipo</p>
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '10px' }}>
               {[
-                { icon: '📕', label: 'Livros', count: LIVROS.length, color: '#FF6B35', bg: '#FFF0EA', dest: 'mat-books' },
-                { icon: '🎥', label: 'Videoaulas', count: VIDEOAULAS.length, color: CORES.violet, bg: '#F0EBFF', dest: 'mat-videos' },
-                { icon: '📄', label: 'Apostilas', count: APOSTILAS.length, color: CORES.teal, bg: '#E6FBF7', dest: 'mat-apostilas' },
-                { icon: '📝', label: 'Resumos', count: 8, color: '#F59E0B', bg: '#FFFBEB', dest: 'materials' },
+                { icone: '📕', label: 'Livros', count: LIVROS.length, color: '#FF6B35', bg: '#FFF0EA', dest: 'mat-books' },
+                { icone: '🎥', label: 'Videoaulas', count: VIDEOAULAS.length, color: CORES.violet, bg: '#F0EBFF', dest: 'mat-videos' },
+                { icone: '📄', label: 'Apostilas', count: APOSTILAS.length, color: CORES.teal, bg: '#E6FBF7', dest: 'mat-apostilas' },
+                { icone: '📝', label: 'Resumos', count: 8, color: '#F59E0B', bg: '#FFFBEB', dest: 'materials' },
             ].map(card => (<button key={card.label} onClick={() => navegar(card.dest)} style={{ padding: '16px 14px', borderRadius: 16, background: card.bg, border: `1.5px solid ${card.color}20`, cursor: 'pointer', textAlign: 'left', fontFamily: "'Nunito', sans-serif", transition: 'transform 0.15s' }} onMouseEnter={e => e.currentTarget.style.transform = 'scale(1.03)'} onMouseLeave={e => e.currentTarget.style.transform = 'scale(1)'}>
-                  <div style={{ fontSize: '26px', marginBottom: '6px' }}>{card.icon}</div>
+                  <div style={{ fontSize: '26px', marginBottom: '6px' }}>{card.icone}</div>
                   <p style={{ fontWeight: 800, color: card.color, fontSize: '13px', margin: '0 0 2px' }}>{card.label}</p>
                   <p style={{ color: CORES.muted, fontSize: '11px', margin: 0 }}>{card.count} disponíveis</p>
                 </button>))}
@@ -1221,7 +1222,7 @@ function TelaLeitor({ navegar, material, tipo }) {
 function TelaVideoaulas({ navegar, definirVideoSelecionado }) {
     const [filtro, definirFiltro] = useState('Todos');
     const filtrados = VIDEOAULAS.filter(v => filtro === 'Todos' || v.subject === filtro);
-    const topicos = [...new Set(filtrados.map(v => v.topic))];
+    const topicos = [...new Set(filtrados.map(v => v.topico))];
     return (<div style={{ flex: 1, display: 'flex', flexDirection: 'column', overflowY: 'auto' }}>
       <div style={{ background: `linear-gradient(135deg, ${CORES.violet}, #9B5DE5)`, padding: '60px 24px 20px' }}>
         <BotaoVoltar navegar={navegar} dest="materials"/>
@@ -1235,15 +1236,15 @@ function TelaVideoaulas({ navegar, definirVideoSelecionado }) {
             </button>))}
         </div>
         {topicos.map(topic => (<div key={topic} className="anim-fadeup">
-            <p style={{ fontWeight: 800, fontSize: '13px', color: CORES.text, margin: '4px 0 8px' }}>{filtro === 'Todos' ? (filtrados.find(v => v.topic === topic)?.subject ?? '') + ' — ' : ''}{topic}</p>
+            <p style={{ fontWeight: 800, fontSize: '13px', color: CORES.text, margin: '4px 0 8px' }}>{filtro === 'Todos' ? (filtrados.find(v => v.topico === topic))?.subject ?? '' + ' — ' : ''}{topic}</p>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
-              {filtrados.filter(v => v.topic === topic).map(video => (<button key={video.id} onClick={() => { definirVideoSelecionado(video); navegar('mat-player'); }} style={{ display: 'flex', alignItems: 'center', gap: '12px', padding: '14px', borderRadius: 16, background: '#fff', border: 'none', cursor: 'pointer', textAlign: 'left', boxShadow: '0 2px 12px rgba(108,58,255,0.08)', fontFamily: "'Nunito', sans-serif", transition: 'transform 0.15s' }} onMouseEnter={e => e.currentTarget.style.transform = 'scale(1.01)'} onMouseLeave={e => e.currentTarget.style.transform = 'scale(1)'}>
+              {filtrados.filter(v => v.topico === topic).map(video => (<button key={video.id} onClick={() => { definirVideoSelecionado(video); navegar('mat-player'); }} style={{ display: 'flex', alignItems: 'center', gap: '12px', padding: '14px', borderRadius: 16, background: '#fff', border: 'none', cursor: 'pointer', textAlign: 'left', boxShadow: '0 2px 12px rgba(108,58,255,0.08)', fontFamily: "'Nunito', sans-serif", transition: 'transform 0.15s' }} onMouseEnter={e => e.currentTarget.style.transform = 'scale(1.01)'} onMouseLeave={e => e.currentTarget.style.transform = 'scale(1)'}>
                   <div style={{ width: 48, height: 48, borderRadius: 12, background: video.watched ? '#F0FDF4' : '#F0EBFF', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '22px', flexShrink: 0 }}>
                     {video.watched ? '✅' : '▶️'}
                   </div>
                   <div style={{ flex: 1 }}>
                     <p style={{ fontWeight: 700, color: CORES.text, fontSize: '13px', margin: '0 0 3px' }}>{video.title}</p>
-                    <p style={{ color: CORES.muted, fontSize: '11px', margin: '0 0 6px' }}>{video.teacher} · {video.duration}</p>
+                    <p style={{ color: CORES.muted, fontSize: '11px', margin: '0 0 6px' }}>{video.professor} · {video.duracao}</p>
                     {video.progresso > 0 && <BarraProgresso value={video.progresso} color={CORES.violet} height={4}/>}
                   </div>
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke={CORES.muted} strokeWidth="2.5"><path d="M9 18l6-6-6-6"/></svg>
@@ -1267,7 +1268,7 @@ function TelaPlayerVideo({ navegar, video }) {
         } return np; }), 200);
         return () => clearInterval(t);
     }, [reproduzindo]);
-    const [minutosDuracao, segundosDuracao] = v.duration.split(':').map(Number);
+    const [minutosDuracao, segundosDuracao] = v.duracao.split(':').map(Number);
     const segundosDecorridos = Math.floor((progresso / 100) * (minutosDuracao * 60 + segundosDuracao));
     return (<div style={{ flex: 1, display: 'flex', flexDirection: 'column', overflowY: 'auto' }}>
       {/* Player area */}
@@ -1283,7 +1284,7 @@ function TelaPlayerVideo({ navegar, video }) {
           <div style={{ position: 'absolute', bottom: 14, left: 16, right: 16 }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '6px' }}>
               <span style={{ color: 'rgba(255,255,255,0.6)', fontSize: '11px' }}>{Math.floor(segundosDecorridos / 60)}:{String(segundosDecorridos % 60).padStart(2, '0')}</span>
-              <span style={{ color: 'rgba(255,255,255,0.6)', fontSize: '11px' }}>{v.duration}</span>
+              <span style={{ color: 'rgba(255,255,255,0.6)', fontSize: '11px' }}>{v.duracao}</span>
             </div>
             <div style={{ background: 'rgba(255,255,255,0.2)', borderRadius: 99, height: 3 }}>
               <div style={{ width: `${progresso}%`, height: '100%', background: CORES.violet, borderRadius: 99 }}/>
